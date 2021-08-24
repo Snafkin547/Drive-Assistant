@@ -24,8 +24,6 @@ The following screenshots show the snippets of the data injection pipeline.
 **2) Data Augmentation (Unused)**
 DA augments data augmentation as a part of its pipeline, which rescales RGB values into 0.0~1.0 range, randomly rotates up to 50 degrees, and vertically and horizontally shifts by max 20%. 
 
-![image](https://user-images.githubusercontent.com/62607343/130620135-23cf3d3e-e0dd-4ad5-a54f-89870d0a710a.png)
-
 **3) Use of HDF5 file**
  Using HDF5 file format, it accelerates its learning speed
 
