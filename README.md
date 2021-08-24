@@ -3,9 +3,6 @@
 Drive Assistant (DA) is Python based Deep Learning Model, which classifies road images into two category: with and without potholes.
 It deploys a derivative of GoogLeNet, has achieved 88.46% of accuracy of successful detection of potholes in road images without overfitting. 
 
-![image](https://user-images.githubusercontent.com/62607343/130620093-9fbb41e5-aa61-41c4-8f70-3743ee008bc1.png)
-
-
 The big picture of DA’s architecture consists of - Data Import from Kaggle, Pre-processing, CNN, and signals Drive Instruction. 
 
 The pre-processing pipeline uses HDF5 file format, which sped up the process dramatically. The model automatically loads image from my drive, standardize the size and RGB values, augment data, and split them into the training dataset and validation dataset. 
@@ -15,7 +12,8 @@ The main body of DA is GoogLeNet structure - convolutional layers, max-pooling l
 In order to improve accuracy, I made the following changes. First, SELU is used as activation function in place of ReLU and Leaky-ReLU, in order to avoid possible gradient saturation and the dying ReLU problem. SELU is applied to inception layers. Also, I changed the numbers of feature map outputs in the first two layers from 64 to 150. Furthermore, I added three fully connected layers (with 1000, 100 and 100 neurons in this sequence) prior to the output layer. 
 
 These additions could potentially have exposed the model to the risk of overfitting. In fact, it did experience slight overfittings when I increased to 175 and 200 feature maps, and deteriorated its result to 82.10% (-4.10%) and 80.64% (-5.56%). Likewise, four additional fully connected layers (with 1000, 1000, 100 and 100 neurons) reduced accuracy to 83.02%(-3.18%). Therefore, the present model maintains 150 feature maps in the first two layers and three fully connected layers as the following diagram shows.
-![image](https://user-images.githubusercontent.com/62607343/130620782-1beba0e7-4384-4168-843e-a2757ae48c96.png)
+![image](https://user-images.githubusercontent.com/62607343/130621244-2b537868-daa5-4f85-8542-90c3c0e7f688.png)
+
 
 **1) Data Ingestion**
 DA accepts any size of road images without error and standardize it to (276, 368) size.
