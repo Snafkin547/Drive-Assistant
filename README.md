@@ -12,7 +12,7 @@ The main body of DA is GoogLeNet structure - convolutional layers, max-pooling l
 In order to improve accuracy, I made the following changes. First, SELU is used as activation function in place of ReLU and Leaky-ReLU, in order to avoid possible gradient saturation and the dying ReLU problem. SELU is applied to inception layers. Also, I changed the numbers of feature map outputs in the first two layers from 64 to 150. Furthermore, I added three fully connected layers (with 1000, 100 and 100 neurons in this sequence) prior to the output layer. 
 
 These additions could potentially have exposed the model to the risk of overfitting. In fact, it did experience slight overfittings when I increased to 175 and 200 feature maps, and deteriorated its result to 82.10% (-4.10%) and 80.64% (-5.56%). Likewise, four additional fully connected layers (with 1000, 1000, 100 and 100 neurons) reduced accuracy to 83.02%(-3.18%). Therefore, the present model maintains 150 feature maps in the first two layers and three fully connected layers as the following diagram shows.
-![image](https://user-images.githubusercontent.com/62607343/130621244-2b537868-daa5-4f85-8542-90c3c0e7f688.png)
+![image](https://user-images.githubusercontent.com/62607343/130621244-2b537868-daa5-4f85-8542-90c3c0e7f688.png  width="320px">)
 
 
 **1) Data Ingestion**
