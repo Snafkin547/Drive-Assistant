@@ -19,7 +19,7 @@ These additions could potentially have exposed the model to the risk of overfitt
 DA accepts any size of road images without error and standardize it to (276, 368) size.
 The following screenshots show the snippets of the data injection pipeline.
 ![image](https://user-images.githubusercontent.com/62607343/130651177-c25b47e1-7bdd-4d8a-a5eb-c7a3d6507b2f.png)
-![image](https://user-images.githubusercontent.com/62607343/130651465-9412e38f-a542-48f5-952a-37a3032c04ab.png)
+<img src=https://user-images.githubusercontent.com/62607343/130651465-9412e38f-a542-48f5-952a-37a3032c04ab.png width="1000">
 
 **2) Data Augmentation (Unused)**
 
@@ -39,7 +39,8 @@ ReLU overcomes gradient saturation problem that Sigmoid and Tanh functions conta
 
 DA signals “Keep going” if there is no pothole and “Stop” if there is any pothole as the following screenshot:
 
-![image](https://user-images.githubusercontent.com/62607343/130651041-e3a2b913-c86d-4f97-a6aa-d5ff06b53117.png)
-![image](https://user-images.githubusercontent.com/62607343/130651080-cd5ef267-4613-499a-b891-51d853d32246.png)
+<img src=https://user-images.githubusercontent.com/62607343/130651041-e3a2b913-c86d-4f97-a6aa-d5ff06b53117.png width="1000">
+<img src=https://user-images.githubusercontent.com/62607343/130651080-cd5ef267-4613-499a-b891-51d853d32246.png width="1000">
+
 
 
