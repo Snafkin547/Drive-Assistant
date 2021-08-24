@@ -39,8 +39,8 @@ ReLU overcomes gradient saturation problem that Sigmoid and Tanh functions conta
 
 DA signals “Keep going” if there is no pothole and “Stop” if there is any pothole as the following screenshot:
 
-<img src=https://user-images.githubusercontent.com/62607343/130651041-e3a2b913-c86d-4f97-a6aa-d5ff06b53117.png width="1000">
-<img src=https://user-images.githubusercontent.com/62607343/130651080-cd5ef267-4613-499a-b891-51d853d32246.png width="1000">
+<img src=https://user-images.githubusercontent.com/62607343/130651041-e3a2b913-c86d-4f97-a6aa-d5ff06b53117.png width="500">
+<img src=https://user-images.githubusercontent.com/62607343/130651080-cd5ef267-4613-499a-b891-51d853d32246.png width="500">
 
 
 
