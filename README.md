@@ -27,8 +27,6 @@ DA augments data augmentation as a part of its pipeline, which rescales RGB valu
 **3) Use of HDF5 file**
  Using HDF5 file format, it accelerates its learning speed
 
-![image](https://user-images.githubusercontent.com/62607343/130620029-6bb2db8a-9ac6-48b2-af4f-d46c4064b618.png)
-
 **4) Activation & Initialization**
 ReLU overcomes gradient saturation problem that Sigmoid and Tanh functions contained. ReLU output does not stagnate for positive input values, while it does for negative input values. Leaky-ReLu is improved version of ReLU because it does not die for negative input values since it has slight angle for negative values. Leaky-ReLu function improved DA’s accuracy by 4.51% compared with ReLU. Furthermore, I implemented SELU for DA this week. Unlike ReLU and Leaky-ReLU, SELU does not lose gradient when input is 0, hence it completely overcomes dying ReLU problem. Replacement to SELU just by itself did not improve accuracy compared to Leaky-ReLU, however, the best performance, 88.46%, with the use of SELU, L1 regularization and decaying learning rate at 0.95 %. The following table is the summary of activations and initializers, relevant for my project.
 
