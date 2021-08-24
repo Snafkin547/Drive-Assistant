@@ -19,8 +19,7 @@ These additions could potentially have exposed the model to the risk of overfitt
 DA accepts any size of road images without error and standardize it to (276, 368) size.
 The following screenshots show the snippets of the data injection pipeline.
 ![image](https://user-images.githubusercontent.com/62607343/130651177-c25b47e1-7bdd-4d8a-a5eb-c7a3d6507b2f.png)
-![image](https://user-images.githubusercontent.com/62607343/130651338-c11346f0-93c2-438d-8681-0365492b4e15.png)
-
+![image](https://user-images.githubusercontent.com/62607343/130651465-9412e38f-a542-48f5-952a-37a3032c04ab.png)
 
 **2) Data Augmentation (Unused)**
 
