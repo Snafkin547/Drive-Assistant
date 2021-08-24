@@ -3,13 +3,14 @@
 Drive Assistant (DA) is Python based Deep Learning Model, which classifies road images into two category: with and without potholes.
 It deploys a derivative of GoogLeNet, has achieved 88.46% of accuracy of successful detection of potholes in road images without overfitting. 
 
-The big picture of DA’s architecture consists of - Data Import from Kaggle, Pre-processing, CNN, and signals Drive Instruction. 
+![image](https://user-images.githubusercontent.com/62607343/130652346-2ae4c0af-28a2-4010-8713-5ff9ce711dd1.png)
 
-The pre-processing pipeline uses HDF5 file format, which sped up the process dramatically. The model automatically loads image from my drive, standardize the size and RGB values, augment data, and split them into the training dataset and validation dataset. 
+The big picture of DA’s architecture consists of - Data Import from Kaggle, Pre-processing, CNN, and signals Drive Instruction. 
 
 The main body of DA is GoogLeNet structure - convolutional layers, max-pooling layers, inception layers(a bunch of convolutional layers and a max-pooling layer), Global average pooling layer instead of flattening layer, and “sigmoid” function in the output layer. 
 
-In order to improve accuracy, I made the following changes. First, SELU is used as activation function in place of ReLU and Leaky-ReLU, in order to avoid possible gradient saturation and the dying ReLU problem. SELU is applied to inception layers. Also, I changed the numbers of feature map outputs in the first two layers from 64 to 150. Furthermore, I added three fully connected layers (with 1000, 100 and 100 neurons in this sequence) prior to the output layer. 
+In order to improve accuracy, I made the following changes to the original architecture. 
+First, SELU is used as activation function in place of ReLU and Leaky-ReLU, in order to avoid possible gradient saturation and the dying ReLU problem. SELU is applied to inception layers. Also, I changed the numbers of feature map outputs in the first two layers from 64 to 150. Furthermore, I added three fully connected layers (with 1000, 100 and 100 neurons in this sequence) prior to the output layer. 
 
 These additions could potentially have exposed the model to the risk of overfitting. In fact, it did experience slight overfittings when I increased to 175 and 200 feature maps, and deteriorated its result to 82.10% (-4.10%) and 80.64% (-5.56%). Likewise, four additional fully connected layers (with 1000, 1000, 100 and 100 neurons) reduced accuracy to 83.02%(-3.18%). Therefore, the present model maintains 150 feature maps in the first two layers and three fully connected layers as the following diagram shows.
 ![image](https://user-images.githubusercontent.com/62607343/130650910-62b161bc-af75-4f02-b446-e8f50ef4f797.png)
@@ -25,7 +26,7 @@ The following screenshots show the snippets of the data injection pipeline.
 
 DA augments data augmentation as a part of its pipeline, which rescales RGB values into 0.0~1.0 range, randomly rotates up to 50 degrees, and vertically and horizontally shifts by max 20%. 
 
-**3) Use of HDF5 file**
+**3) Use of HDF5 Format**
 
  Using HDF5 file format, it accelerates its learning speed
 
@@ -35,7 +36,23 @@ ReLU overcomes gradient saturation problem that Sigmoid and Tanh functions conta
 
 <img src="https://user-images.githubusercontent.com/62607343/130621436-9b2ae0da-3ef5-4657-a67c-5fd116c9475d.png" width="2800x">
 
-**5) Drive Signal**
+
+**5) Regularizer**
+<u>L1 class (Lasso Regression)<u/>
+   tf.keras.regularizers.l1(l1=0.01, **kwargs)
+   The L1 regularization penalty is computed as: loss = l1 * reduce_sum(abs(x))
+ 
+<u>L2 class (Ridge Regression)<u/>
+   tf.keras.regularizers.l2(l2=0.01, **kwargs)
+   The L2 regularization penalty is computed as: loss = l2 * reduce_sum(square(x))
+
+<u>L1_L2 function<u/>
+   tf.keras.regularizers.l1_l2(l1=0.01, l2=0.01)
+   The L1 regularization penalty is computed as: loss = l1 * reduce_sum(abs(x))
+   The L2 regularization penalty is computed as: loss = l2 * reduce_sum(square(x))
+
+
+**6) Drive Signal**
 
 DA signals “Keep going” if there is no pothole and “Stop” if there is any pothole as the following screenshot:
 
