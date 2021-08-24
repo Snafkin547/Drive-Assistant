@@ -38,6 +38,7 @@ ReLU overcomes gradient saturation problem that Sigmoid and Tanh functions conta
 
 
 **5) Regularizer**
+
 <u>L1 class (Lasso Regression)<u/>
    tf.keras.regularizers.l1(l1=0.01, **kwargs)
    The L1 regularization penalty is computed as: loss = l1 * reduce_sum(abs(x))
