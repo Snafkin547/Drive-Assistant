@@ -34,10 +34,10 @@ DA augments data augmentation as a part of its pipeline, which rescales RGB valu
 **4) Activation & Initialization**
 ReLU overcomes gradient saturation problem that Sigmoid and Tanh functions contained. ReLU output does not stagnate for positive input values, while it does for negative input values. Leaky-ReLu is improved version of ReLU because it does not die for negative input values since it has slight angle for negative values. Leaky-ReLu function improved DA’s accuracy by 4.51% compared with ReLU. Furthermore, I implemented SELU for DA this week. Unlike ReLU and Leaky-ReLU, SELU does not lose gradient when input is 0, hence it completely overcomes dying ReLU problem. Replacement to SELU just by itself did not improve accuracy compared to Leaky-ReLU, however, the best performance, 88.46%, with the use of SELU, L1 regularization and decaying learning rate at 0.95 %. The following table is the summary of activations and initializers, relevant for my project.
 
-![image](https://user-images.githubusercontent.com/62607343/130620404-0a7f6e2c-457d-40f4-8f99-0f2c32a615d8.png)
+![image](https://user-images.githubusercontent.com/62607343/130621436-9b2ae0da-3ef5-4657-a67c-5fd116c9475d.png)
 
 **5) Drive Signal**
 DA signals “Keep going” if there is no pothole and “Stop” if there is any pothole as the following screenshot:
 
-![image](https://user-images.githubusercontent.com/62607343/130619943-6265d902-adce-4589-8916-dc65872a2ae7.png)
+![image](https://user-images.githubusercontent.com/62607343/130621500-8b93766e-eb83-46d2-8c27-d00cc87135ac.png)
 
